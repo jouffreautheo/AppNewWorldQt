@@ -68,6 +68,7 @@ public:
 
         lineEditPassword = new QLineEdit(DialogAuth);
         lineEditPassword->setObjectName(QStringLiteral("lineEditPassword"));
+        lineEditPassword->setEchoMode(QLineEdit::Password);
 
         formLayout->setWidget(2, QFormLayout::FieldRole, lineEditPassword);
 
@@ -107,7 +108,7 @@ public:
         labelLogin->setText(QApplication::translate("DialogAuth", "Login", 0));
         labelPassword->setText(QApplication::translate("DialogAuth", "Mot de passe", 0));
         pushButtonValider->setText(QApplication::translate("DialogAuth", "Ok", 0));
-        pushButtonAnnuler->setText(QApplication::translate("DialogAuth", "Annul\303\251", 0));
+        pushButtonAnnuler->setText(QApplication::translate("DialogAuth", "Cancel", 0));
     } // retranslateUi
 
 };

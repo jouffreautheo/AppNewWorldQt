@@ -15,10 +15,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    dialogauth.cpp
+    dialogauth.cpp \
+    dialograyon.cpp \
+    dialogtypeprod.cpp
 
 HEADERS  += mainwindow.h \
-    dialogauth.h
+    dialogauth.h \
+    dialograyon.h \
+    dialogtypeprod.h
 
 FORMS    += mainwindow.ui \
-    dialogauth.ui
+    dialogauth.ui \
+    dialograyon.ui \
+    dialogtypeprod.ui

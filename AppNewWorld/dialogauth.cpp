@@ -23,14 +23,16 @@ void DialogAuth::on_pushButtonValider_clicked()
 {
     qDebug()<<"void DialogAuth::on_pushButtonValider_clicked()";
     //initiliasation de la requete
-    std::cout<<"1";
-
     QString txtReq="SELECT employeID, employeNom, employePrenom  FROM employe  Where employePassword='"+ui->lineEditPassword->text()+"' AND employeLogin='"+ui->lineEditLogin->text()+"'";
     qDebug()<<txtReq;
     QSqlQuery maRequete(txtReq);
     if(maRequete.numRowsAffected()==1)
     {
         accept();
+    }
+    else
+    {
+        ui->labelPassword->setStyleSheet("color:red");
     }
 }
 void DialogAuth::clicSurAnnuler()
