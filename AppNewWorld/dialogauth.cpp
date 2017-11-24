@@ -3,6 +3,7 @@
 #include <QSqlDatabase>
 #include <QSqlQuery>
 #include <QDebug>
+#include <iostream>
 DialogAuth::DialogAuth(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::DialogAuth)
@@ -20,20 +21,20 @@ DialogAuth::~DialogAuth()
 
 void DialogAuth::on_pushButtonValider_clicked()
 {
-    //QDebug()<<"void DialogAuth::on_pushButtonValider_clicked()";
+    qDebug()<<"void DialogAuth::on_pushButtonValider_clicked()";
     //initiliasation de la requete
-    QString req=("SELECt employeID, employeNom, employePrenom  FROM employe  Where employePassword="+ui->lineEditPassword->text()+" AND employeLogin="+ui->lineEditLogin->text()+";");
-    QSqlQuery maRequete(req);
-    if(maRequete.exec())
+    std::cout<<"1";
+
+    QString txtReq="SELECT employeID, employeNom, employePrenom  FROM employe  Where employePassword='"+ui->lineEditPassword->text()+"' AND employeLogin='"+ui->lineEditLogin->text()+"'";
+    qDebug()<<txtReq;
+    QSqlQuery maRequete(txtReq);
+    if(maRequete.numRowsAffected()==1)
     {
-        if(maRequete.numRowsAffected()==1)
-        {
-            accept();
-        }
+        accept();
     }
 }
 void DialogAuth::clicSurAnnuler()
 {
-   // QDebug()<<"void DialogAuth::clicSurAnnuler()";
+    qDebug()<<"void DialogAuth::clicSurAnnuler()";
     this->close();
 }

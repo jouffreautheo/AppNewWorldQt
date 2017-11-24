@@ -2,6 +2,7 @@
 #define DIALOGAUTH_H
 
 #include <QDialog>
+#include <QSqlDatabase>
 
 namespace Ui {
 class DialogAuth;
@@ -20,6 +21,7 @@ private slots:
     void clicSurAnnuler();
 
 private:
+    QSqlDatabase maBase;
     Ui::DialogAuth *ui;
 };
 
