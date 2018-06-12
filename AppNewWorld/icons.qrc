@@ -1,1 +1,7 @@
-<RCC/>
+<RCC>
+    <qresource prefix="/">
+        <file>icones/edit-delete.png</file>
+        <file>icones/emblem-default.png</file>
+        <file>icones/accessories-text-editor.png</file>
+    </qresource>
+</RCC>

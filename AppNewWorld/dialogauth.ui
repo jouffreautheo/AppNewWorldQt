@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>308</width>
-    <height>156</height>
+    <height>159</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Connexion à NewWorld</string>
   </property>
   <layout class="QFormLayout" name="formLayout">
    <item row="0" column="1">
@@ -28,9 +28,6 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="1">
-    <widget class="QLineEdit" name="lineEditLogin"/>
-   </item>
    <item row="2" column="0">
     <widget class="QLabel" name="labelPassword">
      <property name="text">
@@ -40,6 +37,9 @@
    </item>
    <item row="2" column="1">
     <widget class="QLineEdit" name="lineEditPassword">
+     <property name="text">
+      <string>admin</string>
+     </property>
      <property name="echoMode">
       <enum>QLineEdit::Password</enum>
      </property>
@@ -65,12 +65,20 @@
        <property name="text">
         <string>Ok</string>
        </property>
+       <property name="icon">
+        <iconset resource="icons.qrc">
+         <normaloff>:/icones/emblem-default.png</normaloff>:/icones/emblem-default.png</iconset>
+       </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="pushButtonAnnuler">
        <property name="text">
         <string>Cancel</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icons.qrc">
+         <normaloff>:/icones/edit-delete.png</normaloff>:/icones/edit-delete.png</iconset>
        </property>
       </widget>
      </item>
@@ -89,8 +97,17 @@
      </item>
     </layout>
    </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="lineEditLogin">
+     <property name="text">
+      <string>admin</string>
+     </property>
+    </widget>
+   </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

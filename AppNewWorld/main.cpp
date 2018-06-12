@@ -9,10 +9,10 @@ int main(int argc, char *argv[])
     //initialisation de la base
     QSqlDatabase maBase;
     maBase=QSqlDatabase::addDatabase("QMYSQL");
-    maBase.setUserName("userBO");
+    maBase.setUserName("root");
     maBase.setHostName("localhost");
-    maBase.setPassword("QZg54Kl??.");
-    maBase.setDatabaseName("dbtjNewWorld");
+    maBase.setPassword("passf203");
+    maBase.setDatabaseName("dbNewWorld");
     maBase.open();
     DialogAuth monDialogLogin;
     if(monDialogLogin.exec()==QDialog::Accepted)

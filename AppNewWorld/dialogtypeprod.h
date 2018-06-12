@@ -20,6 +20,10 @@ private slots:
 
     void on_pushButtonAjouter_clicked();
 
+    void on_pushButton_clicked();
+
+    void on_lineEditNom_textEdited(const QString &arg1);
+
 private:
     Ui::DialogTypeProd *ui;
 };

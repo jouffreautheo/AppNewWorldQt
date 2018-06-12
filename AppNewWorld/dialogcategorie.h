@@ -15,6 +15,13 @@ public:
     explicit Dialogcategorie(QWidget *parent = 0);
     ~Dialogcategorie();
 
+private slots:
+    void on_pushButtonRetour_clicked();
+
+    void on_pushButtonAjouter_clicked();
+
+    void on_pushButtonAide_clicked();
+
 private:
     Ui::Dialogcategorie *ui;
 };
