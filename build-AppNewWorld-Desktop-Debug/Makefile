@@ -49,19 +49,25 @@ SOURCES       = ../AppNewWorld/main.cpp \
 		../AppNewWorld/mainwindow.cpp \
 		../AppNewWorld/dialogauth.cpp \
 		../AppNewWorld/dialograyon.cpp \
-		../AppNewWorld/dialogtypeprod.cpp moc_mainwindow.cpp \
+		../AppNewWorld/dialogtypeprod.cpp \
+		../AppNewWorld/dialogcategorie.cpp qrc_icons.cpp \
+		moc_mainwindow.cpp \
 		moc_dialogauth.cpp \
 		moc_dialograyon.cpp \
-		moc_dialogtypeprod.cpp
+		moc_dialogtypeprod.cpp \
+		moc_dialogcategorie.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		dialogauth.o \
 		dialograyon.o \
 		dialogtypeprod.o \
+		dialogcategorie.o \
+		qrc_icons.o \
 		moc_mainwindow.o \
 		moc_dialogauth.o \
 		moc_dialograyon.o \
-		moc_dialogtypeprod.o
+		moc_dialogtypeprod.o \
+		moc_dialogcategorie.o
 DIST          = /usr/lib/i386-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/common/shell-unix.conf \
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/common/unix.conf \
@@ -120,7 +126,8 @@ DIST          = /usr/lib/i386-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../AppNewWorld/mainwindow.cpp \
 		../AppNewWorld/dialogauth.cpp \
 		../AppNewWorld/dialograyon.cpp \
-		../AppNewWorld/dialogtypeprod.cpp
+		../AppNewWorld/dialogtypeprod.cpp \
+		../AppNewWorld/dialogcategorie.cpp
 QMAKE_TARGET  = AppNewWorld
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = AppNewWorld
@@ -150,7 +157,7 @@ first: all
 
 all: Makefile $(TARGET)
 
-$(TARGET): ui_mainwindow.h ui_dialogauth.h ui_dialograyon.h ui_dialogtypeprod.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_dialogauth.h ui_dialograyon.h ui_dialogtypeprod.h ui_dialogcategorie.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../AppNewWorld/AppNewWorld.pro /usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf /usr/lib/i386-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
@@ -208,6 +215,7 @@ Makefile: ../AppNewWorld/AppNewWorld.pro /usr/lib/i386-linux-gnu/qt5/mkspecs/lin
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/i386-linux-gnu/qt5/mkspecs/features/lex.prf \
 		../AppNewWorld/AppNewWorld.pro \
+		../AppNewWorld/icons.qrc \
 		/usr/lib/i386-linux-gnu/libQt5Widgets.prl \
 		/usr/lib/i386-linux-gnu/libQt5Gui.prl \
 		/usr/lib/i386-linux-gnu/libQt5Core.prl \
@@ -268,6 +276,7 @@ Makefile: ../AppNewWorld/AppNewWorld.pro /usr/lib/i386-linux-gnu/qt5/mkspecs/lin
 /usr/lib/i386-linux-gnu/qt5/mkspecs/features/yacc.prf:
 /usr/lib/i386-linux-gnu/qt5/mkspecs/features/lex.prf:
 ../AppNewWorld/AppNewWorld.pro:
+../AppNewWorld/icons.qrc:
 /usr/lib/i386-linux-gnu/libQt5Widgets.prl:
 /usr/lib/i386-linux-gnu/libQt5Gui.prl:
 /usr/lib/i386-linux-gnu/libQt5Core.prl:
@@ -279,7 +288,7 @@ qmake_all: FORCE
 
 dist: 
 	@test -d .tmp/AppNewWorld1.0.0 || mkdir -p .tmp/AppNewWorld1.0.0
-	$(COPY_FILE) --parents $(DIST) .tmp/AppNewWorld1.0.0/ && $(COPY_FILE) --parents ../AppNewWorld/mainwindow.h ../AppNewWorld/dialogauth.h ../AppNewWorld/dialograyon.h ../AppNewWorld/dialogtypeprod.h .tmp/AppNewWorld1.0.0/ && $(COPY_FILE) --parents ../AppNewWorld/main.cpp ../AppNewWorld/mainwindow.cpp ../AppNewWorld/dialogauth.cpp ../AppNewWorld/dialograyon.cpp ../AppNewWorld/dialogtypeprod.cpp .tmp/AppNewWorld1.0.0/ && $(COPY_FILE) --parents ../AppNewWorld/mainwindow.ui ../AppNewWorld/dialogauth.ui ../AppNewWorld/dialograyon.ui ../AppNewWorld/dialogtypeprod.ui .tmp/AppNewWorld1.0.0/ && (cd `dirname .tmp/AppNewWorld1.0.0` && $(TAR) AppNewWorld1.0.0.tar AppNewWorld1.0.0 && $(COMPRESS) AppNewWorld1.0.0.tar) && $(MOVE) `dirname .tmp/AppNewWorld1.0.0`/AppNewWorld1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/AppNewWorld1.0.0
+	$(COPY_FILE) --parents $(DIST) .tmp/AppNewWorld1.0.0/ && $(COPY_FILE) --parents ../AppNewWorld/icons.qrc .tmp/AppNewWorld1.0.0/ && $(COPY_FILE) --parents ../AppNewWorld/mainwindow.h ../AppNewWorld/dialogauth.h ../AppNewWorld/dialograyon.h ../AppNewWorld/dialogtypeprod.h ../AppNewWorld/dialogcategorie.h .tmp/AppNewWorld1.0.0/ && $(COPY_FILE) --parents ../AppNewWorld/main.cpp ../AppNewWorld/mainwindow.cpp ../AppNewWorld/dialogauth.cpp ../AppNewWorld/dialograyon.cpp ../AppNewWorld/dialogtypeprod.cpp ../AppNewWorld/dialogcategorie.cpp .tmp/AppNewWorld1.0.0/ && $(COPY_FILE) --parents ../AppNewWorld/mainwindow.ui ../AppNewWorld/dialogauth.ui ../AppNewWorld/dialograyon.ui ../AppNewWorld/dialogtypeprod.ui ../AppNewWorld/dialogcategorie.ui .tmp/AppNewWorld1.0.0/ && (cd `dirname .tmp/AppNewWorld1.0.0` && $(TAR) AppNewWorld1.0.0.tar AppNewWorld1.0.0 && $(COMPRESS) AppNewWorld1.0.0.tar) && $(MOVE) `dirname .tmp/AppNewWorld1.0.0`/AppNewWorld1.0.0.tar.gz . && $(DEL_FILE) -r .tmp/AppNewWorld1.0.0
 
 
 clean:compiler_clean 
@@ -300,11 +309,18 @@ mocables: compiler_moc_header_make_all compiler_moc_source_make_all
 
 check: first
 
-compiler_rcc_make_all:
+compiler_rcc_make_all: qrc_icons.cpp
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_dialogauth.cpp moc_dialograyon.cpp moc_dialogtypeprod.cpp
+	-$(DEL_FILE) qrc_icons.cpp
+qrc_icons.cpp: ../AppNewWorld/icons.qrc \
+		../AppNewWorld/icones/accessories-text-editor.png \
+		../AppNewWorld/icones/emblem-default.png \
+		../AppNewWorld/icones/edit-delete.png
+	/usr/lib/i386-linux-gnu/qt5/bin/rcc -name icons ../AppNewWorld/icons.qrc -o qrc_icons.cpp
+
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_dialogauth.cpp moc_dialograyon.cpp moc_dialogtypeprod.cpp moc_dialogcategorie.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_dialogauth.cpp moc_dialograyon.cpp moc_dialogtypeprod.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_dialogauth.cpp moc_dialograyon.cpp moc_dialogtypeprod.cpp moc_dialogcategorie.cpp
 moc_mainwindow.cpp: ../AppNewWorld/mainwindow.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tjouffreau/Documents/AppNewWorldQt/AppNewWorld -I/usr/include/i386-linux-gnu/qt5 -I/usr/include/i386-linux-gnu/qt5/QtWidgets -I/usr/include/i386-linux-gnu/qt5/QtSql -I/usr/include/i386-linux-gnu/qt5/QtGui -I/usr/include/i386-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/i386-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/i586-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/i586-linux-gnu/4.9/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include ../AppNewWorld/mainwindow.h -o moc_mainwindow.cpp
 
@@ -317,11 +333,14 @@ moc_dialograyon.cpp: ../AppNewWorld/dialograyon.h
 moc_dialogtypeprod.cpp: ../AppNewWorld/dialogtypeprod.h
 	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tjouffreau/Documents/AppNewWorldQt/AppNewWorld -I/usr/include/i386-linux-gnu/qt5 -I/usr/include/i386-linux-gnu/qt5/QtWidgets -I/usr/include/i386-linux-gnu/qt5/QtSql -I/usr/include/i386-linux-gnu/qt5/QtGui -I/usr/include/i386-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/i386-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/i586-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/i586-linux-gnu/4.9/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include ../AppNewWorld/dialogtypeprod.h -o moc_dialogtypeprod.cpp
 
+moc_dialogcategorie.cpp: ../AppNewWorld/dialogcategorie.h
+	/usr/lib/i386-linux-gnu/qt5/bin/moc $(DEFINES) -I/usr/lib/i386-linux-gnu/qt5/mkspecs/linux-g++ -I/home/tjouffreau/Documents/AppNewWorldQt/AppNewWorld -I/usr/include/i386-linux-gnu/qt5 -I/usr/include/i386-linux-gnu/qt5/QtWidgets -I/usr/include/i386-linux-gnu/qt5/QtSql -I/usr/include/i386-linux-gnu/qt5/QtGui -I/usr/include/i386-linux-gnu/qt5/QtCore -I. -I/usr/include/c++/4.9 -I/usr/include/i386-linux-gnu/c++/4.9 -I/usr/include/c++/4.9/backward -I/usr/lib/gcc/i586-linux-gnu/4.9/include -I/usr/local/include -I/usr/lib/gcc/i586-linux-gnu/4.9/include-fixed -I/usr/include/i386-linux-gnu -I/usr/include ../AppNewWorld/dialogcategorie.h -o moc_dialogcategorie.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_dialogauth.h ui_dialograyon.h ui_dialogtypeprod.h
+compiler_uic_make_all: ui_mainwindow.h ui_dialogauth.h ui_dialograyon.h ui_dialogtypeprod.h ui_dialogcategorie.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_dialogauth.h ui_dialograyon.h ui_dialogtypeprod.h
+	-$(DEL_FILE) ui_mainwindow.h ui_dialogauth.h ui_dialograyon.h ui_dialogtypeprod.h ui_dialogcategorie.h
 ui_mainwindow.h: ../AppNewWorld/mainwindow.ui
 	/usr/lib/i386-linux-gnu/qt5/bin/uic ../AppNewWorld/mainwindow.ui -o ui_mainwindow.h
 
@@ -334,13 +353,16 @@ ui_dialograyon.h: ../AppNewWorld/dialograyon.ui
 ui_dialogtypeprod.h: ../AppNewWorld/dialogtypeprod.ui
 	/usr/lib/i386-linux-gnu/qt5/bin/uic ../AppNewWorld/dialogtypeprod.ui -o ui_dialogtypeprod.h
 
+ui_dialogcategorie.h: ../AppNewWorld/dialogcategorie.ui
+	/usr/lib/i386-linux-gnu/qt5/bin/uic ../AppNewWorld/dialogcategorie.ui -o ui_dialogcategorie.h
+
 compiler_yacc_decl_make_all:
 compiler_yacc_decl_clean:
 compiler_yacc_impl_make_all:
 compiler_yacc_impl_clean:
 compiler_lex_make_all:
 compiler_lex_clean:
-compiler_clean: compiler_moc_header_clean compiler_uic_clean 
+compiler_clean: compiler_rcc_clean compiler_moc_header_clean compiler_uic_clean 
 
 ####### Compile
 
@@ -351,7 +373,8 @@ main.o: ../AppNewWorld/main.cpp ../AppNewWorld/mainwindow.h \
 mainwindow.o: ../AppNewWorld/mainwindow.cpp ../AppNewWorld/mainwindow.h \
 		ui_mainwindow.h \
 		../AppNewWorld/dialograyon.h \
-		../AppNewWorld/dialogtypeprod.h
+		../AppNewWorld/dialogtypeprod.h \
+		../AppNewWorld/dialogcategorie.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../AppNewWorld/mainwindow.cpp
 
 dialogauth.o: ../AppNewWorld/dialogauth.cpp ../AppNewWorld/dialogauth.h \
@@ -359,12 +382,22 @@ dialogauth.o: ../AppNewWorld/dialogauth.cpp ../AppNewWorld/dialogauth.h \
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialogauth.o ../AppNewWorld/dialogauth.cpp
 
 dialograyon.o: ../AppNewWorld/dialograyon.cpp ../AppNewWorld/dialograyon.h \
-		ui_dialograyon.h
+		ui_dialograyon.h \
+		../AppNewWorld/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialograyon.o ../AppNewWorld/dialograyon.cpp
 
 dialogtypeprod.o: ../AppNewWorld/dialogtypeprod.cpp ../AppNewWorld/dialogtypeprod.h \
-		ui_dialogtypeprod.h
+		ui_dialogtypeprod.h \
+		../AppNewWorld/mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialogtypeprod.o ../AppNewWorld/dialogtypeprod.cpp
+
+dialogcategorie.o: ../AppNewWorld/dialogcategorie.cpp ../AppNewWorld/dialogcategorie.h \
+		ui_dialogcategorie.h \
+		../AppNewWorld/mainwindow.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o dialogcategorie.o ../AppNewWorld/dialogcategorie.cpp
+
+qrc_icons.o: qrc_icons.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o qrc_icons.o qrc_icons.cpp
 
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
@@ -377,6 +410,9 @@ moc_dialograyon.o: moc_dialograyon.cpp
 
 moc_dialogtypeprod.o: moc_dialogtypeprod.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialogtypeprod.o moc_dialogtypeprod.cpp
+
+moc_dialogcategorie.o: moc_dialogcategorie.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_dialogcategorie.o moc_dialogcategorie.cpp
 
 ####### Install
 

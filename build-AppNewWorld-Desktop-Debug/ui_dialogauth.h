@@ -30,7 +30,6 @@ public:
     QFormLayout *formLayout;
     QLabel *labelAuth;
     QLabel *labelLogin;
-    QLineEdit *lineEditLogin;
     QLabel *labelPassword;
     QLineEdit *lineEditPassword;
     QHBoxLayout *horizontalLayout;
@@ -38,12 +37,13 @@ public:
     QPushButton *pushButtonValider;
     QPushButton *pushButtonAnnuler;
     QSpacerItem *horizontalSpacer;
+    QLineEdit *lineEditLogin;
 
     void setupUi(QDialog *DialogAuth)
     {
         if (DialogAuth->objectName().isEmpty())
             DialogAuth->setObjectName(QStringLiteral("DialogAuth"));
-        DialogAuth->resize(308, 156);
+        DialogAuth->resize(308, 159);
         formLayout = new QFormLayout(DialogAuth);
         formLayout->setObjectName(QStringLiteral("formLayout"));
         labelAuth = new QLabel(DialogAuth);
@@ -55,11 +55,6 @@ public:
         labelLogin->setObjectName(QStringLiteral("labelLogin"));
 
         formLayout->setWidget(1, QFormLayout::LabelRole, labelLogin);
-
-        lineEditLogin = new QLineEdit(DialogAuth);
-        lineEditLogin->setObjectName(QStringLiteral("lineEditLogin"));
-
-        formLayout->setWidget(1, QFormLayout::FieldRole, lineEditLogin);
 
         labelPassword = new QLabel(DialogAuth);
         labelPassword->setObjectName(QStringLiteral("labelPassword"));
@@ -80,11 +75,17 @@ public:
 
         pushButtonValider = new QPushButton(DialogAuth);
         pushButtonValider->setObjectName(QStringLiteral("pushButtonValider"));
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/icones/emblem-default.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonValider->setIcon(icon);
 
         horizontalLayout->addWidget(pushButtonValider);
 
         pushButtonAnnuler = new QPushButton(DialogAuth);
         pushButtonAnnuler->setObjectName(QStringLiteral("pushButtonAnnuler"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/icones/edit-delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonAnnuler->setIcon(icon1);
 
         horizontalLayout->addWidget(pushButtonAnnuler);
 
@@ -95,6 +96,11 @@ public:
 
         formLayout->setLayout(3, QFormLayout::SpanningRole, horizontalLayout);
 
+        lineEditLogin = new QLineEdit(DialogAuth);
+        lineEditLogin->setObjectName(QStringLiteral("lineEditLogin"));
+
+        formLayout->setWidget(1, QFormLayout::FieldRole, lineEditLogin);
+
 
         retranslateUi(DialogAuth);
 
@@ -103,12 +109,14 @@ public:
 
     void retranslateUi(QDialog *DialogAuth)
     {
-        DialogAuth->setWindowTitle(QApplication::translate("DialogAuth", "Dialog", 0));
+        DialogAuth->setWindowTitle(QApplication::translate("DialogAuth", "Connexion \303\240 NewWorld", 0));
         labelAuth->setText(QApplication::translate("DialogAuth", "Authentification", 0));
         labelLogin->setText(QApplication::translate("DialogAuth", "Login", 0));
         labelPassword->setText(QApplication::translate("DialogAuth", "Mot de passe", 0));
+        lineEditPassword->setText(QApplication::translate("DialogAuth", "admin", 0));
         pushButtonValider->setText(QApplication::translate("DialogAuth", "Ok", 0));
         pushButtonAnnuler->setText(QApplication::translate("DialogAuth", "Cancel", 0));
+        lineEditLogin->setText(QApplication::translate("DialogAuth", "admin", 0));
     } // retranslateUi
 
 };

@@ -104,6 +104,9 @@ public:
         pushButtonAjouter = new QPushButton(DialogRayon);
         pushButtonAjouter->setObjectName(QStringLiteral("pushButtonAjouter"));
         pushButtonAjouter->setEnabled(false);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/usr/share/icons/Adwaita/16x16/emblems/emblem-default.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonAjouter->setIcon(icon);
 
         horizontalLayout->addWidget(pushButtonAjouter);
 
@@ -113,6 +116,9 @@ public:
 
         pushButtonRetour = new QPushButton(DialogRayon);
         pushButtonRetour->setObjectName(QStringLiteral("pushButtonRetour"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/usr/share/icons/Adwaita/16x16/actions/edit-delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonRetour->setIcon(icon1);
 
         horizontalLayout->addWidget(pushButtonRetour);
 
@@ -131,7 +137,7 @@ public:
 
     void retranslateUi(QDialog *DialogRayon)
     {
-        DialogRayon->setWindowTitle(QApplication::translate("DialogRayon", "Dialog", 0));
+        DialogRayon->setWindowTitle(QApplication::translate("DialogRayon", "Ajout d'un rayon", 0));
         label_3->setText(QApplication::translate("DialogRayon", "Rayon", 0));
         label->setText(QApplication::translate("DialogRayon", "Nom", 0));
         label_2->setText(QApplication::translate("DialogRayon", "Image", 0));

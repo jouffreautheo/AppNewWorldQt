@@ -44,6 +44,7 @@ public:
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButtonCancel;
     QSpacerItem *horizontalSpacer_3;
+    QPushButton *pushButton;
 
     void setupUi(QDialog *DialogTypeProd)
     {
@@ -104,6 +105,9 @@ public:
         pushButtonAjouter = new QPushButton(DialogTypeProd);
         pushButtonAjouter->setObjectName(QStringLiteral("pushButtonAjouter"));
         pushButtonAjouter->setEnabled(false);
+        QIcon icon;
+        icon.addFile(QStringLiteral(":/usr/share/icons/Adwaita/16x16/emblems/emblem-default.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonAjouter->setIcon(icon);
 
         horizontalLayout_2->addWidget(pushButtonAjouter);
 
@@ -113,12 +117,21 @@ public:
 
         pushButtonCancel = new QPushButton(DialogTypeProd);
         pushButtonCancel->setObjectName(QStringLiteral("pushButtonCancel"));
+        QIcon icon1;
+        icon1.addFile(QStringLiteral(":/usr/share/icons/Adwaita/16x16/actions/edit-delete.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButtonCancel->setIcon(icon1);
 
         horizontalLayout_2->addWidget(pushButtonCancel);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout_2->addItem(horizontalSpacer_3);
+
+        pushButton = new QPushButton(DialogTypeProd);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setMaximumSize(QSize(30, 16777215));
+
+        horizontalLayout_2->addWidget(pushButton);
 
 
         verticalLayout->addLayout(horizontalLayout_2);
@@ -131,12 +144,13 @@ public:
 
     void retranslateUi(QDialog *DialogTypeProd)
     {
-        DialogTypeProd->setWindowTitle(QApplication::translate("DialogTypeProd", "Dialog", 0));
+        DialogTypeProd->setWindowTitle(QApplication::translate("DialogTypeProd", "Ajout d'un type de produit", 0));
         label_3->setText(QApplication::translate("DialogTypeProd", "Type Produit", 0));
         label_2->setText(QApplication::translate("DialogTypeProd", "Nom", 0));
         label->setText(QApplication::translate("DialogTypeProd", "Image", 0));
         pushButtonAjouter->setText(QApplication::translate("DialogTypeProd", "Ajouter", 0));
         pushButtonCancel->setText(QApplication::translate("DialogTypeProd", "Retour", 0));
+        pushButton->setText(QApplication::translate("DialogTypeProd", "?", 0));
     } // retranslateUi
 
 };
